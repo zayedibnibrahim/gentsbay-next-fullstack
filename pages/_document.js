@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-document-import-in-page */
-import { ServerStyleSheets } from '@mui/styles'
+import { ServerStyleSheets } from '@material-ui/core/styles'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 

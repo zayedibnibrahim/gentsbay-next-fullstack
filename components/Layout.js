@@ -11,7 +11,7 @@ import {
   ThemeProvider,
   CssBaseline,
   Switch,
-} from '@mui/material'
+} from '@material-ui/core'
 import useStyles from '../utils/styles'
 import { Store } from '../utils/Store'
 import Cookies from 'js-cookie'

@@ -10,7 +10,7 @@ import {
   Typography,
   Card,
   Button,
-} from '@mui/material'
+} from '@material-ui/core'
 import { useRouter } from 'next/router'
 import data from '../../utils/data'
 import Layout from '../../components/Layout'
