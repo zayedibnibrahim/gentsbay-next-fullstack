@@ -17,10 +17,12 @@ import axios from 'axios'
 import { Store } from '../../utils/Store'
 import db from '../../utils/db'
 import Product from '../../models/Product'
+import { useRouter } from 'next/router'
 
 export default function ProductScreen({ product }) {
   const { dispatch } = useContext(Store)
 
+  const router = useRouter()
   const classes = useStyles()
 
   if (!product) {
@@ -34,6 +36,7 @@ export default function ProductScreen({ product }) {
       return
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1 } })
+    router.push('/cart')
   }
 
   return (
