@@ -1,6 +1,6 @@
+import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../utils/Store'
 import Layout from '../components/Layout'
 import CheckoutWizard from '../components/CheckoutWizard'
@@ -40,7 +40,7 @@ export default function Payment() {
       enqueueSnackbar('Payment method is required', { variant: 'error' })
     } else {
       dispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethod })
-      Cookies.set('paymentMethod', paymentMethod)
+      Cookies.set('paymentMethod', JSON.stringify(paymentMethod))
       router.push('/placeorder')
     }
   }
