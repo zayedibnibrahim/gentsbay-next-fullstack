@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import {
@@ -9,17 +9,19 @@ import {
   createTheme,
   ThemeProvider,
   CssBaseline,
-  Switch,
   Badge,
-  Button,
   Menu,
   MenuItem,
-  AppBar,
 } from '@material-ui/core'
+
+import AppBar from '@material-ui/core/AppBar'
+import Switch from '@material-ui/core/Switch'
+import Button from '@material-ui/core/Button'
+
 import useStyles from '../utils/styles'
 import { Store } from '../utils/Store'
 import Cookies from 'js-cookie'
-import { useState } from 'react'
+
 import { useRouter } from 'next/router'
 
 export default function Layout({ title, description, children }) {
@@ -50,18 +52,23 @@ export default function Layout({ title, description, children }) {
     },
   })
   const classes = useStyles()
+
   const darkModeChangeHandler = () => {
     dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' })
     const newDarkMode = !darkMode
     Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF')
   }
+
   const [anchorEl, setAnchorEl] = useState(null)
+
   const loginClickHandler = (e) => {
     setAnchorEl(e.currentTarget)
   }
+
   const loginMenuCloseHandler = () => {
     setAnchorEl(null)
   }
+
   const logoutClickHandler = () => {
     setAnchorEl(null)
     dispatch({ type: 'USER_LOGOUT' })
@@ -72,7 +79,7 @@ export default function Layout({ title, description, children }) {
   return (
     <div>
       <Head>
-        <title>{title ? `${title} - Next Amazona` : 'Next Amazona'}</title>
+        <title>{title ? `${title} - Gents Bay` : 'Gents Bay'}</title>
         {description && <meta name='description' content={description}></meta>}
       </Head>
       <ThemeProvider theme={theme}>
@@ -81,7 +88,7 @@ export default function Layout({ title, description, children }) {
           <Toolbar>
             <NextLink href='/' passHref>
               <Link>
-                <Typography className={classes.brand}>amazona</Typography>
+                <Typography className={classes.brand}>Gents Bay</Typography>
               </Link>
             </NextLink>
             <div className={classes.grow}></div>
