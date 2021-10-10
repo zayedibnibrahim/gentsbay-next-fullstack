@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import {
-  AppBar,
   Toolbar,
   Typography,
   Container,
@@ -15,6 +14,7 @@ import {
   Button,
   Menu,
   MenuItem,
+  AppBar,
 } from '@material-ui/core'
 import useStyles from '../utils/styles'
 import { Store } from '../utils/Store'

@@ -36,8 +36,9 @@ export default function Login() {
         email,
         password,
       })
+
       dispatch({ type: 'USER_LOGIN', payload: data })
-      Cookies.set('userInfo', data)
+      Cookies.set('userInfo', JSON.stringify(data))
       router.push(redirect || '/')
     } catch (err) {
       alert(err.response.data ? err.response.data.message : err.message)
