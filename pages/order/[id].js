@@ -87,6 +87,7 @@ function Order({ params }) {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' })
+
         const { data } = await axios.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         })
@@ -95,6 +96,7 @@ function Order({ params }) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) })
       }
     }
+
     if (!order._id || successPay || (order._id && order._id !== orderId)) {
       fetchOrder()
       if (successPay) {
