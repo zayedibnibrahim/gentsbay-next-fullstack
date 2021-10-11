@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useReducer } from 'react'
 import dynamic from 'next/dynamic'
 import Layout from '../../components/Layout'
