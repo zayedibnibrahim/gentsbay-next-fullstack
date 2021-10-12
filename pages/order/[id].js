@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useReducer } from 'react'
 import dynamic from 'next/dynamic'
 import Layout from '../../components/Layout'
@@ -17,17 +15,16 @@ import {
   TableCell,
   Link,
   CircularProgress,
+  Button,
   Card,
   List,
   ListItem,
-  Button,
 } from '@material-ui/core'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import useStyles from '../../utils/styles'
 import { useSnackbar } from 'notistack'
 import { getError } from '../../utils/error'
-
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
 
 function reducer(state, action) {
@@ -101,7 +98,6 @@ function Order({ params }) {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' })
-
         const { data } = await axios.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         })
@@ -110,7 +106,6 @@ function Order({ params }) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) })
       }
     }
-
     if (
       !order._id ||
       successPay ||
@@ -141,8 +136,7 @@ function Order({ params }) {
       loadPaypalScript()
     }
   }, [order, successPay, successDeliver])
-
-  const { closeSnackbar, enqueueSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar()
 
   function createOrder(data, actions) {
     return actions.order
@@ -180,6 +174,7 @@ function Order({ params }) {
   function onError(err) {
     enqueueSnackbar(getError(err), { variant: 'error' })
   }
+
   async function deliverOrderHandler() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' })
@@ -197,6 +192,7 @@ function Order({ params }) {
       enqueueSnackbar(getError(err), { variant: 'error' })
     }
   }
+
   return (
     <Layout title={`Order ${orderId}`}>
       <Typography component='h1' variant='h1'>
