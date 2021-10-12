@@ -82,6 +82,11 @@ function AdminOrders() {
                   <ListItemText primary='Orders'></ListItemText>
                 </ListItem>
               </NextLink>
+              <NextLink href='/admin/products' passHref>
+                <ListItem button component='a'>
+                  <ListItemText primary='Products'></ListItemText>
+                </ListItem>
+              </NextLink>
               <NextLink href='/admin/users' passHref>
                 <ListItem button component='a'>
                   <ListItemText primary='Users'></ListItemText>
